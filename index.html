@@ -213,14 +213,17 @@
                     // Clear items and completedItems in localStorage
                     localStorage.removeItem('items');
                     localStorage.removeItem('completedItems');
-                    
-                    // Clear the list and re-render the page
-                    renderItems();
-                    Swal.fire(
-                        'Reset!',
-                        'All items have been cleared.',
-                        'success'
-                    );
+
+                     // Auto-remove the success message popup
+                     renderItems();
+                     Swal.fire({
+                        title: 'Reset!',
+                        text: 'All items have been cleared.',
+                        icon: 'success',
+                        timer: 800, // Auto close after 2 seconds
+                        timerProgressBar: true,
+                        showConfirmButton: false // Remove the "OK" button
+                    });
                 }
             });
         });
