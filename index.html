@@ -145,11 +145,16 @@
                 if (result.isConfirmed) {
                     // If confirmed, mark the item as complete
                     completeItem(index);
-                    Swal.fire(
-                        'Completed!',
-                        'The item has been marked as completed.',
-                        'success'
-                    );
+
+                    // Auto-remove the success message popup
+                    Swal.fire({
+                        title: 'Completed!',
+                        text: 'The item has been marked as completed.',
+                        icon: 'success',
+                        timer: 800, // Auto close after 2 seconds
+                        timerProgressBar: true,
+                        showConfirmButton: false // Remove the "OK" button
+                    });
                 }
             });
         }
